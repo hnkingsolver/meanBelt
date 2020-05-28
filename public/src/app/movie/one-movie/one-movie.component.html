@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<div *ngFor="let movie of movie_data">
+    <h1> Reviews for {{movie.title}}</h1>
+    <button class="btn btn-danger" (click)="onDelete(movie._id)">Delete movie</button>
+    <table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Reviewer</th>
+            <th scope="col">Stars</th>
+            <th scope="col">Reviews</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movie.rate">
+            <td>{{movie.yourName}}</td>
+            <td>
+                {{movie.stars}}
+            </td>
+            <td>{{movie.comment}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

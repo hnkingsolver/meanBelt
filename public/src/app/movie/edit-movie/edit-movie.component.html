@@ -1,0 +1,29 @@
+<div class="container" *ngFor="let movie of movie_data">
+    <form class="border edit-product">
+        <h4>Add a Movie Review for {{movie.title}}</h4>
+        <p class="text-primary" *ngIf="new_rating.yourName < 3">You must provide your name</p>
+        <p class="text-primary" *ngIf="new_rating.stars == 0"> Must provide a star</p>
+        <p class="text-primary" *ngIf="new_rating.comment < 3"> Must provide a comment</p>
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" name="yourName" [(ngModel)]="new_rating.yourName" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="review">Rating:</label>
+            <select name="stars" type=number id="stars" [(ngModel)]="new_rating.stars">
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Stars</option>
+            </select>
+            <input type="text" name="comment" [(ngModel)]="new_rating.comment" class="form-control" id="url">
+        </div>
+        <div class="form-group clearfix">
+            <button type="submit" class="btn btn-primary" (click)="create_Rating()">Add Review!</button>
+            <button type="submit" class="btn btn-danger" [routerLink]="['']">
+                    Cancel
+            </button>
+        </div>
+    </form>
+</div>
